@@ -1,0 +1,33 @@
+@tailwind base;
+
+@font-face {
+  font-family: Openly;
+  src: url(./Openly.woff2) format('woff2-variations');
+  font-style: normal;
+  font-variation-settings: 'wght' 500;
+  font-variation-ligatures: normal;
+  font-weight: 200 800;
+}
+
+body {
+  @apply font-openly text-base md:text-lg bg-white text-black dark:bg-black dark:text-white transition-all;
+}
+
+nav {
+  @apply text-white text-xl md:text-2xl bg-openly p-5;
+  * {
+    @apply px-2;
+  }
+}
+
+main{
+  @apply px-5;
+}
+
+h1 {
+  @apply text-4xl md:text-7xl font-light text-transparent py-4 bg-openly bg-clip-text;
+}
+
+button {
+  @apply p-2 m-0.5 rounded-sm text-white border-none bg-openly;
+}
