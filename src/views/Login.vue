@@ -113,21 +113,23 @@
           },
         },
       });
-      client.on('ulist', async (ulist) => {
-        if (ulist.data.includes(formData.get('username'))) {
-          let uuid = await (await fetch('https://uuid.rocks/plain')).text();
-          client.send({
-            cmd: 'pvar',
-            val: uuid,
-            name: 'f',
-            id: 'authsvc',
-          });
-          setTimeout(() => {
-            client.disconnect();
-            window.location.assign(
-              `https://api.openly.cf/accounts/token?token=${uuid}`
-            );
-          }, 1000);
+      client.on('direct', async (data:looseObj) => {
+        if (data.val.cmd === 'ulist') {
+          if (data.val.val.includes(formData.get('username'))) {
+            let uuid = await (await fetch('https://uuid.rocks/plain')).text();
+            client.send({
+              cmd: 'pvar',
+              val: uuid,
+              name: 'f',
+              id: 'authsvc',
+            });
+            setTimeout(() => {
+              client.disconnect();
+              window.location.assign(
+                `https://api.openly.cf/accounts/token?token=${uuid}`
+              );
+            }, 1000);
+          }
         }
       });
     });
