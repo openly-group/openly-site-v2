@@ -9,8 +9,8 @@
 </template>
 <script lang="ts">
   /*
-  Typescript Types
-*/
+    Typescript Types
+  */
   type callback = (data: any[]) => any;
 
   type eventsObj = { [event: string]: callback[] };
@@ -113,23 +113,21 @@
           },
         },
       });
-      client.on('direct', async (data:looseObj) => {
-        if (data.val.cmd === 'ulist') {
-          if (data.val.val.includes(formData.get('username'))) {
-            let uuid = await (await fetch('https://uuid.rocks/plain')).text();
-            client.send({
-              cmd: 'pvar',
-              val: uuid,
-              name: 'f',
-              id: 'authsvc',
-            });
-            setTimeout(() => {
-              client.disconnect();
-              window.location.assign(
-                `https://api.openly.cf/accounts/token?token=${uuid}`
-              );
-            }, 1000);
-          }
+      client.on('ulist', async (data: looseObj) => {
+        if (data.val.includes(formData.get('username'))) {
+          let uuid = await (await fetch('https://uuid.rocks/plain')).text();
+          client.send({
+            cmd: 'pvar',
+            val: uuid,
+            name: 'f',
+            id: 'authsvc',
+          });
+          setTimeout(() => {
+            client.disconnect();
+            window.location.assign(
+              `https://api.openly.cf/accounts/token?token=${uuid}`
+            );
+          }, 1000);
         }
       });
     });
