@@ -7,3 +7,8 @@
     Server, so uploading code is unavalible.
   </p>
 </template>
+<script lang="ts">
+  export default {
+    name: 'Home'
+  }
+</script>
