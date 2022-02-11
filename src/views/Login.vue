@@ -114,7 +114,7 @@
         },
       });
       client.on('ulist', async (ulist) => {
-        if (ulist.includes(formData.get('username'))) {
+        if (ulist.data.includes(formData.get('username'))) {
           let uuid = await (await fetch('https://uuid.rocks/plain')).text();
           client.send({
             cmd: 'pvar',
