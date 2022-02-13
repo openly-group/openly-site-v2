@@ -126,7 +126,7 @@
           setTimeout(() => {
             client.disconnect();
             window.location.assign(
-              `https://api.openly.cf/accounts/token?token=${uuid}`
+              `https://openly-api.meower.org/accounts/token?token=${uuid}`
             );
           }, 1000);
         }
