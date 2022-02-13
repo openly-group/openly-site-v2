@@ -2,6 +2,7 @@
   <h1>login with meower to continue</h1>
   <form id="login" onsubmit="onsubmit">
     <input type="text" name="username" placeholder="username" />
+    <br>
     <input type="password" name="password" placeholder="password" />
     <br />
     <button type="submit" value="Login">Login</button>
