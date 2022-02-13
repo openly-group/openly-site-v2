@@ -5,8 +5,8 @@ module.exports = {
       openly: ['Openly'],
     },
     backgroundImage: {
-      openly: 'linear-gradient(120deg, #008cc4, #008080)',
+      openly: 'linear-gradient(120deg, #008cc4, #008080) !important',
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
